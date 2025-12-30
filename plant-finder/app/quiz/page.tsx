@@ -75,6 +75,21 @@ export default function QuizPage() {
             </div>
           </div>
 
+          {/* IMAGE - Before question, shows full image without cropping */}
+          <div className="flex justify-center mb-8">
+            <div className="w-full max-w-2xl h-48 bg-[#e9e4d8] rounded-2xl overflow-hidden flex items-center justify-center">
+              <Image
+                src={currentQuestion.image}
+                alt={currentQuestion.question}
+                width={800}
+                height={192}
+                className="object-contain max-h-48"
+                priority
+                unoptimized
+              />
+            </div>
+          </div>
+
           {/* QUESTION */}
           <h2 className="text-2xl md:text-3xl font-serif font-semibold text-slate-900 text-center mb-12">
             <span className="mr-2">{currentQuestion.icon}</span>
@@ -119,18 +134,6 @@ export default function QuizPage() {
                 </button>
               );
             })}
-          </div>
-
-          {/* IMAGE (DIRECT, RELIABLE) */}
-          <div className="flex justify-center mb-12">
-            <Image
-              src={currentQuestion.image}
-              alt={currentQuestion.question}
-              width={720}
-              height={320}
-              className="rounded-2xl object-cover border"
-              priority
-            />
           </div>
 
           {/* NAVIGATION */}
