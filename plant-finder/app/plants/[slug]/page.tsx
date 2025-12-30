@@ -142,8 +142,6 @@ export default async function PlantDetailPage({
                   )}
                 </ul>
               </div>
-            </div>
-          </div>
 
           {/* Hero */}
           <div className="rounded-2xl overflow-hidden border border-emerald-100 bg-white shadow-sm">
@@ -297,22 +295,6 @@ export default async function PlantDetailPage({
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/results"
-              className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold border border-slate-200 bg-white hover:bg-slate-50 transition"
-            >
-              Back to results
-            </Link>
-
-            <button
-              disabled
-              className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-slate-200 text-slate-500 cursor-not-allowed"
-              title="Coming soon"
-            >
-              Save this plant (coming soon)
-            </button>
-          </div>
         </section>
       </div>
     </main>
