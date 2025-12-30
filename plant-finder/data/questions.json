@@ -1,0 +1,106 @@
+[
+    {
+      "id": "light",
+      "question": "How much natural light does your space get most days?",
+      "attribute": "light",
+      "weight": 5,
+      "image": "/images/quiz/light.jpg",
+      "icon": "☀️",
+      "options": [
+        { "label": "Low (small or shaded windows)", "value": "low", "icon": "🪟" },
+        { "label": "Medium (bright indirect light)", "value": "medium", "icon": "🌤️" },
+        { "label": "Bright (direct sunlight)", "value": "bright", "icon": "🌞" }
+      ]
+    },
+    {
+      "id": "careTime",
+      "question": "How much time do you realistically want to spend caring for a plant?",
+      "attribute": "careTime",
+      "weight": 4,
+      "image": "/images/quiz/care.jpg",
+      "icon": "🧤",
+      "options": [
+        { "label": "Very little (I might forget)", "value": "very-low", "icon": "⏳" },
+        { "label": "A little each week", "value": "low", "icon": "📅" },
+        { "label": "I enjoy caring for plants", "value": "medium", "icon": "🌱" }
+      ]
+    },
+    {
+      "id": "watering",
+      "question": "Which sounds most like you?",
+      "attribute": "watering",
+      "weight": 3,
+      "image": "/images/quiz/water.jpg",
+      "icon": "💧",
+      "options": [
+        { "label": "I forget to water", "value": "low", "icon": "😅" },
+        { "label": "I water on a schedule", "value": "medium", "icon": "⏰" },
+        { "label": "I tend to overwater", "value": "high", "icon": "🚿" }
+      ]
+    },
+    {
+      "id": "dryAirTolerance",
+      "question": "Is your home usually dry because of heating or AC?",
+      "attribute": "dryAirTolerance",
+      "weight": 3,
+      "image": "/images/quiz/air.jpg",
+      "icon": "🌬️",
+      "options": [
+        { "label": "Yes, it gets pretty dry", "value": "high", "icon": "🔥" },
+        { "label": "Somewhat", "value": "medium", "icon": "🌤️" },
+        { "label": "No, it stays fairly humid", "value": "low", "icon": "💦" }
+      ]
+    },
+    {
+      "id": "size",
+      "question": "How much space do you have for a plant?",
+      "attribute": "size",
+      "weight": 3,
+      "image": "/images/quiz/space.jpg",
+      "icon": "📐",
+      "options": [
+        { "label": "Very limited space", "value": "small", "icon": "🪴" },
+        { "label": "Some space", "value": "medium", "icon": "🪴🪴" },
+        { "label": "Plenty of space", "value": "large", "icon": "🌿" }
+      ]
+    },
+    {
+      "id": "petSafety",
+      "question": "Do you have pets that might chew on plants?",
+      "attribute": "petSafety",
+      "weight": 6,
+      "image": "/images/quiz/pets.jpg",
+      "icon": "🐾",
+      "options": [
+        { "label": "Yes", "value": "safe", "icon": "🐶🐱" },
+        { "label": "No", "value": "toxic", "icon": "🚫🐾" }
+      ]
+    },
+    {
+      "id": "growthRate",
+      "question": "What kind of growth do you prefer?",
+      "attribute": "growthRate",
+      "weight": 2,
+      "image": "/images/quiz/growth.jpg",
+      "icon": "📈",
+      "options": [
+        { "label": "Slow and steady", "value": "slow", "icon": "🐢" },
+        { "label": "Moderate growth", "value": "medium", "icon": "🌿" },
+        { "label": "Fast and noticeable growth", "value": "fast", "icon": "🚀" }
+      ]
+    },
+    {
+      "id": "form",
+      "question": "Which plant style do you like most?",
+      "attribute": "form",
+      "weight": 1,
+      "image": "/images/quiz/form.jpg",
+      "icon": "🪴",
+      "options": [
+        { "label": "Tall and upright", "value": "upright", "icon": "⬆️" },
+        { "label": "Trailing or hanging", "value": "trailing", "icon": "〰️" },
+        { "label": "Full and leafy", "value": "leafy", "icon": "🍃" }
+      ]
+    }
+  ]
+  

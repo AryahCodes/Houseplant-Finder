@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App-wide polish */
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+    @apply bg-[#f6f3ec] text-[#1c1c1c];
+  }
+   
+
+  a {
+    @apply text-[#2f7d5a] hover:text-[#256b4d];
+  }
+  

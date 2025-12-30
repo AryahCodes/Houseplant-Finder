@@ -1,0 +1,115 @@
+[
+    {
+      "name": "Snake Plant",
+      "slug": "snake-plant",
+      "attributes": {
+        "light": "low",
+        "careTime": "very-low",
+        "watering": "low",
+        "growthRate": "slow",
+        "size": "medium",
+        "form": "upright",
+        "dryAirTolerance": "high",
+        "petSafety": "toxic"
+      }
+    },
+    {
+      "name": "ZZ Plant",
+      "slug": "zz-plant",
+      "attributes": {
+        "light": "low",
+        "careTime": "very-low",
+        "watering": "low",
+        "growthRate": "slow",
+        "size": "medium",
+        "form": "upright",
+        "dryAirTolerance": "high",
+        "petSafety": "toxic"
+      }
+    },
+    {
+      "name": "Pothos",
+      "slug": "pothos",
+      "attributes": {
+        "light": "medium",
+        "careTime": "low",
+        "watering": "medium",
+        "growthRate": "fast",
+        "size": "small",
+        "form": "trailing",
+        "dryAirTolerance": "medium",
+        "petSafety": "toxic"
+      }
+    },
+    {
+      "name": "Spider Plant",
+      "slug": "spider-plant",
+      "attributes": {
+        "light": "medium",
+        "careTime": "low",
+        "watering": "medium",
+        "growthRate": "fast",
+        "size": "small",
+        "form": "trailing",
+        "dryAirTolerance": "medium",
+        "petSafety": "safe"
+      }
+    },
+    {
+      "name": "Heartleaf Philodendron",
+      "slug": "heartleaf-philodendron",
+      "attributes": {
+        "light": "medium",
+        "careTime": "low",
+        "watering": "medium",
+        "growthRate": "fast",
+        "size": "small",
+        "form": "trailing",
+        "dryAirTolerance": "medium",
+        "petSafety": "toxic"
+      }
+    },
+    {
+      "name": "Rubber Plant",
+      "slug": "rubber-plant",
+      "attributes": {
+        "light": "bright",
+        "careTime": "medium",
+        "watering": "medium",
+        "growthRate": "medium",
+        "size": "large",
+        "form": "upright",
+        "dryAirTolerance": "low",
+        "petSafety": "toxic"
+      }
+    },
+    {
+      "name": "Peace Lily",
+      "slug": "peace-lily",
+      "attributes": {
+        "light": "medium",
+        "careTime": "medium",
+        "watering": "high",
+        "growthRate": "medium",
+        "size": "medium",
+        "form": "leafy",
+        "dryAirTolerance": "low",
+        "petSafety": "toxic"
+      }
+    },
+    {
+      "name": "Aloe Vera",
+      "slug": "aloe-vera",
+      "attributes": {
+        "light": "bright",
+        "careTime": "low",
+        "watering": "low",
+        "growthRate": "slow",
+        "size": "small",
+        "form": "upright",
+        "dryAirTolerance": "high",
+        "petSafety": "toxic"
+      }
+    }
+  ]
+  
