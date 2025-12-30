@@ -219,26 +219,35 @@ export default async function PlantDetailPage({
 
         {/* ================= SHOPPING LIST ================= */}
         <section className="bg-white rounded-2xl p-6 shadow-sm">
-          <h3 className="font-semibold mb-4">Shopping list</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {equipment.map((item) => (
-              <div
-                key={item.id}
-                className="rounded-xl bg-[#f3f1eb] p-4 text-center text-sm"
-              >
-                {item.label}
-              </div>
-            ))}
-            {niceToHaves.map((item) => (
-              <div
-                key={item}
-                className="rounded-xl bg-[#f3f1eb] p-4 text-center text-sm"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </section>
+  <h3 className="font-semibold mb-5">Shopping list</h3>
+
+  <div className="grid [grid-template-columns:repeat(auto-fit,minmax(120px,1fr))] gap-6">
+    {[...equipment.map(e => e.label), ...niceToHaves].map((label) => (
+      <div
+        key={label}
+        className="flex flex-col items-center text-center gap-2"
+      >
+        {/* RECTANGULAR IMAGE PLACEHOLDER */}
+        <div className="w-full aspect-[4/3] rounded-xl bg-red-600 border border-red-800 shadow-md flex items-center justify-center mx-1">
+        <span className="text-xs font-bold text-white">
+    IMAGE
+  </span>
+</div>
+
+
+
+
+
+        {/* TEXT */}
+        <div className="text-sm text-slate-800 leading-tight">
+          {label}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
       </div>
     </main>
