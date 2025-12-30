@@ -48,6 +48,12 @@ export default function ResultsPage() {
     setLoading(false);
   }, []);
 
+  // 🔁 RETAKE QUIZ HANDLER
+  const handleRetakeQuiz = () => {
+    localStorage.removeItem(ANSWERS_KEY);
+    localStorage.removeItem("plantQuizAnswers");
+  };
+
   const rankedPlants = useMemo(() => {
     if (!answers) return [];
 
@@ -106,10 +112,20 @@ export default function ResultsPage() {
           Your Plant Matches 🌱
         </h1>
 
+        {/* RETAKE QUIZ */}
+        <div className="flex justify-center">
+          <Link
+            href="/quiz"
+            onClick={handleRetakeQuiz}
+            className="text-sm font-semibold underline hover:opacity-80"
+          >
+            Retake the quiz
+          </Link>
+        </div>
+
         {/* FILTERS */}
         <div className="border bg-white p-4 flex flex-wrap gap-6 items-center justify-between">
           <div className="flex flex-wrap gap-6">
-            {/* Helper */}
             {(
               [
                 ["Pet-safe only", petSafeOnly, setPetSafeOnly],
@@ -124,9 +140,7 @@ export default function ResultsPage() {
               >
                 <span
                   className={`w-5 h-5 border flex items-center justify-center ${
-                    value
-                      ? "bg-gray-900 text-white"
-                      : "bg-white"
+                    value ? "bg-gray-900 text-white" : "bg-white"
                   }`}
                 >
                   {value && "✓"}
