@@ -73,14 +73,6 @@ export default async function PlantDetailPage({
   const petSafe = a.petSafety === "safe";
   const equipment = EQUIPMENT_BY_PLANT[plant.slug] ?? [];
 
-  const niceToHaves = [
-    "Pot with drainage holes",
-    "Saucer or drip tray",
-    "Indoor potting mix",
-    ...(a.light === "low" ? ["Small grow light (optional)"] : []),
-    ...(a.watering === "low" ? ["Soil moisture meter (optional)"] : []),
-  ];
-
   const plantTip = getPlantTip(plant);
 
   return (
@@ -219,34 +211,33 @@ export default async function PlantDetailPage({
 
         {/* ================= SHOPPING LIST ================= */}
         <section className="bg-white rounded-2xl p-6 shadow-sm">
+  <div className="max-w-5xl mx-auto">
+
+  </div>
+</section>
   <h3 className="font-semibold mb-5">Shopping list</h3>
 
   <div className="grid [grid-template-columns:repeat(auto-fit,minmax(120px,1fr))] gap-6">
-    {[...equipment.map(e => e.label), ...niceToHaves].map((label) => (
+    {equipment.map((item) => (
       <div
-        key={label}
+        key={item.id}
         className="flex flex-col items-center text-center gap-2"
       >
-        {/* RECTANGULAR IMAGE PLACEHOLDER */}
-        <div className="w-full aspect-[4/3] rounded-xl bg-red-600 border border-red-800 shadow-md flex items-center justify-center mx-1">
-        <span className="text-xs font-bold text-white">
-    IMAGE
-  </span>
-</div>
+        <div className="w-full aspect-[4/3] rounded-xl bg-white border shadow-sm relative">
+          <Image
+            src={item.image}
+            alt={item.label}
+            fill
+            className="object-contain p-3"
+          />
+        </div>
 
-
-
-
-
-        {/* TEXT */}
         <div className="text-sm text-slate-800 leading-tight">
-          {label}
+          {item.label}
         </div>
       </div>
     ))}
   </div>
-</section>
-
 
 
       </div>

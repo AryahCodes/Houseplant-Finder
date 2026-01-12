@@ -25,9 +25,22 @@ const careOrder: Record<string, number> = {
   high: 3,
 };
 
+/* ----------------------------------------
+   Match score → human-friendly label
+---------------------------------------- */
+function getMatchLabel(score: number) {
+  if (score <= 10) return { label: "Excellent match", color: "emerald" };
+  if (score <= 14) return { label: "Great match", color: "green" };
+  if (score <= 18) return { label: "Good match", color: "yellow" };
+  return { label: "Okay match", color: "gray" };
+}
+
 export default function ResultsPage() {
   const [answers, setAnswers] = useState<Record<string, string> | null>(null);
   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("/api/quiz/submit", { method: "POST" }).catch(() => {});
+  }, []);  
 
   // filters
   const [petSafeOnly, setPetSafeOnly] = useState(false);
@@ -48,7 +61,6 @@ export default function ResultsPage() {
     setLoading(false);
   }, []);
 
-  // 🔁 RETAKE QUIZ HANDLER
   const handleRetakeQuiz = () => {
     localStorage.removeItem(ANSWERS_KEY);
     localStorage.removeItem("plantQuizAnswers");
@@ -69,7 +81,7 @@ export default function ResultsPage() {
       return true;
     });
 
-    const sorted = [...filtered].sort((a, b) => {
+    return [...filtered].sort((a, b) => {
       if (sortMode === "score") return a.score - b.score;
 
       if (sortMode === "care") {
@@ -82,8 +94,6 @@ export default function ResultsPage() {
       const pb = b.plant.attributes.petSafety === "safe" ? 0 : 1;
       return pa !== pb ? pa - pb : a.score - b.score;
     });
-
-    return sorted;
   }, [answers, petSafeOnly, lowLightOnly, lowWaterOnly, sortMode]);
 
   if (loading) {
@@ -112,7 +122,11 @@ export default function ResultsPage() {
           Your Plant Matches 🌱
         </h1>
 
-        {/* RETAKE QUIZ */}
+        <p className="text-center text-sm text-slate-600 max-w-xl mx-auto">
+          Plants are ranked by how closely they match your space, care preferences,
+          and lifestyle. Higher-ranked plants are a better fit for you.
+        </p>
+
         <div className="flex justify-center">
           <Link
             href="/quiz"
@@ -123,56 +137,61 @@ export default function ResultsPage() {
           </Link>
         </div>
 
-        {/* FILTERS */}
-        <div className="border bg-white p-4 flex flex-wrap gap-6 items-center justify-between">
-          <div className="flex flex-wrap gap-6">
-            {(
-              [
-                ["Pet-safe only", petSafeOnly, setPetSafeOnly],
-                ["Low light only", lowLightOnly, setLowLightOnly],
-                ["Low watering only", lowWaterOnly, setLowWaterOnly],
-              ] as const
-            ).map(([label, value, setter]) => (
-              <button
-                key={label}
-                onClick={() => setter(!value)}
-                className="flex items-center gap-3 text-sm"
-              >
-                <span
-                  className={`w-5 h-5 border flex items-center justify-center ${
-                    value ? "bg-gray-900 text-white" : "bg-white"
-                  }`}
+        {/* FILTERS + SORT */}
+        <section className="bg-white border rounded-xl px-4 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap gap-2">
+              {(
+                [
+                  ["Pet-safe", petSafeOnly, setPetSafeOnly],
+                  ["Low light", lowLightOnly, setLowLightOnly],
+                  ["Low watering", lowWaterOnly, setLowWaterOnly],
+                ] as const
+              ).map(([label, value, setter]) => (
+                <button
+                  key={label}
+                  onClick={() => setter(!value)}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm border transition
+                    ${
+                      value
+                        ? "bg-emerald-600 text-white border-emerald-600"
+                        : "bg-white text-slate-700 hover:bg-slate-100"
+                    }`}
                 >
-                  {value && "✓"}
-                </span>
-                <span>{label}</span>
-              </button>
-            ))}
-          </div>
+                  <span
+                    className={`w-4 h-4 flex items-center justify-center rounded-full border text-xs font-bold
+                      ${
+                        value
+                          ? "bg-white text-emerald-600 border-white"
+                          : "border-slate-300 text-transparent"
+                      }`}
+                  >
+                    ✓
+                  </span>
+                  {label}
+                </button>
+              ))}
+            </div>
 
-          {/* Sort */}
-          <div className="flex items-center gap-2">
-            <span className="text-sm">Sort</span>
-            <select
-              value={sortMode}
-              onChange={(e) => setSortMode(e.target.value as SortMode)}
-              className="border px-2 py-1 text-sm"
-            >
-              <option value="score">Best match (score)</option>
-              <option value="care">Lowest care</option>
-              <option value="pet">Pet-safe first</option>
-            </select>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-slate-500">Sort by</span>
+              <select
+                value={sortMode}
+                onChange={(e) => setSortMode(e.target.value as SortMode)}
+                className="border rounded-md px-2 py-1 bg-white"
+              >
+                <option value="score">Best match</option>
+                <option value="care">Lowest care</option>
+                <option value="pet">Pet-safe first</option>
+              </select>
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* RESULTS */}
-        {rankedPlants.length === 0 && (
-          <div className="border p-6 bg-white text-center">
-            No plants match your current filters.
-          </div>
-        )}
+        {rankedPlants.map(({ plant, score }, index) => {
+          const match = getMatchLabel(score);
 
-        {rankedPlants.map(({ plant, score }) => {
           const lightCare =
             CARE_INFO.light[plant.attributes.light as keyof typeof CARE_INFO.light];
           const wateringCare =
@@ -202,11 +221,43 @@ export default function ResultsPage() {
                   className="object-cover"
                 />
 
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold">{plant.name}</h2>
-                  <p className="text-sm text-gray-600">
-                    Match score: {score}
-                  </p>
+<div className="flex-1">
+  <h2 className="text-2xl font-bold">{plant.name}</h2>
+
+  {index === 0 && (
+    <div className="mt-1 text-xs font-semibold text-emerald-700">
+      🌟 Best overall match for you
+    </div>
+  )}
+
+
+{index !== 0 && (
+  <div className="flex items-center gap-2 mt-1">
+    <span
+      className={`text-xs font-semibold px-2 py-1 rounded-full
+        ${
+          match.color === "emerald" &&
+          "bg-emerald-100 text-emerald-700"
+        }
+        ${
+          match.color === "green" &&
+          "bg-green-100 text-green-700"
+        }
+        ${
+          match.color === "yellow" &&
+          "bg-yellow-100 text-yellow-700"
+        }
+        ${
+          match.color === "gray" &&
+          "bg-gray-100 text-gray-600"
+        }
+      `}
+    >
+      {match.label}
+    </span>
+  </div>
+)}
+
 
                   <div className="grid grid-cols-3 gap-4 mt-3 text-sm">
                     <div>☀️ {lightCare}</div>
