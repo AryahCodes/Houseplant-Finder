@@ -10,9 +10,9 @@ A beginner-friendly web app that helps people find the right houseplant based on
 
 ## What it does
 
-- Short quiz to understand light, watering, and lifestyle preferences
-- Ranks houseplants by how well they match your space
-- Shows clear, practical care guides
+- Asks a short quiz about light, watering habits, pets, and space
+- Ranks houseplants by how well they match your answers
+- Shows clear, realistic care guidance
 - Includes optional shopping recommendations for supplies
 
 The goal is to help beginners start with plants they’re most likely to succeed with.
@@ -24,11 +24,11 @@ The goal is to help beginners start with plants they’re most likely to succeed
 Many people struggle with houseplants not because they don’t care, but because they start with the wrong one.
 
 This project focuses on:
-- Clear recommendations
-- Honest tradeoffs
-- Simple care advice you can actually follow
+- Honest tradeoffs instead of perfect plants
+- Simple explanations instead of jargon
+- Care advice you can actually follow
 
-It’s also intentionally built to be **easy to understand and easy to contribute to**.
+It is also intentionally built to be **easy to read, easy to modify, and easy to contribute to**.
 
 ---
 
@@ -40,10 +40,52 @@ It’s also intentionally built to be **easy to understand and easy to contribut
 - Static plant data
 - Client-side quiz + scoring logic
 
-No backend, no authentication, no database.
+No backend. No authentication. No database.
 
 ---
 
 ## Preview
 
-> (Add a screenshot here once you export one)
+_Add a screenshot here (recommended)._  
+A results page or quiz question works best.
+
+
+
+---
+
+## Contributing
+
+This project was intentionally designed to be **beginner-friendly**.
+
+If this is your first open-source contribution, you are welcome here.
+
+### How to contribute
+
+1. Go to the **Issues** tab and look for issues labeled `good first issue`
+2. Comment “I’d like to work on this” so work isn’t duplicated
+3. Fork the repo and make your change
+4. Open a pull request
+
+Small contributions are encouraged:
+- UI polish
+- Accessibility improvements
+- Copy improvements
+- Cleanup and refactors
+
+No backend experience required.
+
+---
+
+## Project philosophy
+
+- Clear > clever  
+- Simple > abstract  
+- Real users > toy examples  
+
+This repo is meant to feel safe to explore and learn from.
+
+---
+
+## Status
+
+🧪 Actively maintained and open to contributors
