@@ -60,7 +60,7 @@ If this is your first open-source contribution, you are welcome here.
 ### How to contribute
 
 1. Go to the **Issues** tab and look for issues labeled `good first issue`
-2. Comment “I’d like to work on this” so work isn’t duplicated
+2. Comment “I’d like to work on this” so work isn’t duplicated. 3 week time limit max as it should only take you 20 minutes or less to fix the good first issue.
 3. Fork the repo and make your change
 4. Open a pull request
 
