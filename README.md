@@ -1,4 +1,4 @@
-# Houseplant Finder 🌱
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 A beginner-friendly web app that helps people find the right houseplant based on their space, lifestyle, and care preferences.
 
