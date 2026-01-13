@@ -46,9 +46,7 @@ No backend. No authentication. No database.
 
 ## Preview
 
-_Add a screenshot here (recommended)._  
-A results page or quiz question works best.
-
+<img width="1469" height="868" alt="image" src="https://github.com/user-attachments/assets/04b8874a-a105-44f8-b6a5-e20b6fd96f33" />
 
 
 ---
