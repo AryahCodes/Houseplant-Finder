@@ -8,6 +8,12 @@ A beginner-friendly web app that helps people find the right houseplant based on
 
 ---
 
+## Local Development
+npm install
+npm run dev
+
+---
+
 ## What it does
 
 - Asks a short quiz about light, watering habits, pets, and space
@@ -60,9 +66,10 @@ If this is your first open-source contribution, you are welcome here.
 ### How to contribute
 
 1. Go to the **Issues** tab and look for issues labeled `good first issue`
-2. Comment “I’d like to work on this” so work isn’t duplicated. 3 week time limit max as it should only take you 20 minutes or less to fix the good first issue.
-3. Fork the repo and make your change
-4. Open a pull request
+2. Comment “I’d like to work on this” so work isn’t duplicated.
+3. If you get stuck or need more time, just leave a comment — no pressure.
+4. Fork the repo and make your change
+5. Open a pull request
 
 Small contributions are encouraged:
 - UI polish
