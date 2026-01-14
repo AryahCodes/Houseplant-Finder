@@ -1,96 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Houseplant Finder
 
-A beginner-friendly web app that helps people find the right houseplant based on their space, lifestyle, and care preferences.
+*A constrained decision system built with Next.js*
 
 🌐 **Live demo:** https://houseplant-finder.vercel.app  
-🧠 **Designed for beginner contributors**  
-🛠 **No auth • No database • Frontend-only**
+
+🛠 **Stack:** Next.js (App Router), TypeScript, Tailwind  
+🧠 **Focus:** clarity, constraints, and contributor-friendly design
+
+---
+
+## Overview
+
+Houseplant Finder is a frontend-only Next.js application that helps users choose houseplants based on their space, lifestyle, and care preferences.
+
+The app intentionally avoids backend complexity (no authentication, no database) and instead focuses on **decision modeling, UX clarity, and maintainability**. It is designed both as a practical tool for users and as a clean, approachable codebase for learning and contribution.
+
+---
+
+## System Design (High Level)
+
+This project is best understood as a **constrained decision system**, not a CRUD app.
+
+### Inputs
+
+Users answer a short quiz about:
+
+- light availability  
+- watering habits  
+- care effort  
+- pet safety  
+- space constraints  
+
+### Processing
+
+- Each plant has a fixed set of attributes  
+- Quiz answers map to those attributes  
+- A scoring function applies penalties for mismatches  
+- **Lower score = better match**  
+- Scores are converted into human-readable match labels (Excellent, Great, Good, Okay)
+
+### Outputs
+
+- Ranked list of plant recommendations  
+- Clear explanations of why a plant is a good or risky choice  
+- Realistic care guidance instead of idealized advice  
+
+The system prioritizes **explainability over precision**.  
+Users don’t see raw scores — they see understandable outcomes.
+
+---
+
+## Why No Backend?
+
+This was a deliberate architectural decision.
+
+### Tradeoffs made on purpose
+
+- No authentication  
+- No database  
+- No server-side state  
+
+### Why this matters
+
+- Keeps the mental model small  
+- Makes data flow easy to reason about  
+- Reduces contributor onboarding friction  
+- Forces clarity in component boundaries and logic  
+
+This project optimizes for **readability and correctness**, not feature count.
+
+---
+
+## Why This Project Exists
+
+Many beginners fail at houseplants not because they lack interest, but because they start with plants that don’t fit their environment or habits.
+
+This project focuses on:
+
+- honest tradeoffs instead of “perfect” plants  
+- simple explanations instead of jargon  
+- guidance users can realistically follow  
+
+On the engineering side, it exists to answer a different question:
+
+> What does a real, modern Next.js app look like when you intentionally keep it simple?
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)  
+- React  
+- TypeScript  
+- Static JSON data  
+- Client-side quiz and scoring logic  
+
+There is no backend, no authentication layer, and no persistence beyond local state.  
+This is intentional.
 
 ---
 
 ## Local Development
+
+```bash
 npm install
 npm run dev
-
----
-
-## What it does
-
-- Asks a short quiz about light, watering habits, pets, and space
-- Ranks houseplants by how well they match your answers
-- Shows clear, realistic care guidance
-- Includes optional shopping recommendations for supplies
-
-The goal is to help beginners start with plants they’re most likely to succeed with.
-
----
-
-## Why this project exists
-
-Many people struggle with houseplants not because they don’t care, but because they start with the wrong one.
-
-This project focuses on:
-- Honest tradeoffs instead of perfect plants
-- Simple explanations instead of jargon
-- Care advice you can actually follow
-
-It is also intentionally built to be **easy to read, easy to modify, and easy to contribute to**.
-
----
-
-## Tech stack
-
-- **Next.js (App Router)**
-- **React**
-- **TypeScript**
-- Static plant data
-- Client-side quiz + scoring logic
-
-No backend. No authentication. No database.
-
----
-
-## Preview
-
-<img width="1469" height="868" alt="image" src="https://github.com/user-attachments/assets/04b8874a-a105-44f8-b6a5-e20b6fd96f33" />
-
-
----
-
-## Contributing
-
-This project was intentionally designed to be **beginner-friendly**.
-
-If this is your first open-source contribution, you are welcome here.
-
-### How to contribute
-
-1. Go to the **Issues** tab and look for issues labeled `good first issue`
-2. Comment “I’d like to work on this” so work isn’t duplicated.
-3. If you get stuck or need more time, just leave a comment — no pressure.
-4. Fork the repo and make your change
-5. Open a pull request
-
-Small contributions are encouraged:
-- UI polish
-- Accessibility improvements
-- Copy improvements
-- Cleanup and refactors
-
-No backend experience required.
-
----
-
-## Project philosophy
-
-- Clear > clever  
-- Simple > abstract  
-- Real users > toy examples  
-
-This repo is meant to feel safe to explore and learn from.
-
----
-
-## Status
-
-🧪 Actively maintained and open to contributors
