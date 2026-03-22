@@ -131,7 +131,7 @@ export default function ResultsPage() {
           <Link
             href="/quiz"
             onClick={handleRetakeQuiz}
-            className="text-sm font-semibold underline hover:opacity-80"
+          className="text-sm font-semibold px-3 py-1 rounded-md border border-gray-300 transition-all duration-200 hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow-md"
           >
             Retake the quiz
           </Link>
@@ -275,8 +275,8 @@ export default function ResultsPage() {
 
                   <Link
                     href={`/plants/${plant.slug}`}
-                    className="inline-block mt-4 font-semibold"
-                  >
+                 className="block mt-4 text-lg font-semibold text-gray-800 hover:text-blue-700 hover:text-2xl transition-all duration-200"
+                 >
                     View full care guide →
                   </Link>
                 </div>
