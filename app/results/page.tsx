@@ -40,7 +40,7 @@ export default function ResultsPage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("/api/quiz/submit", { method: "POST" }).catch(() => {});
-  }, []);  
+  }, []);
 
   // filters
   const [petSafeOnly, setPetSafeOnly] = useState(false);
@@ -69,9 +69,7 @@ export default function ResultsPage() {
   const rankedPlants = useMemo(() => {
     if (!answers) return [];
 
-    const scored = plants.map((plant) =>
-      scorePlant(plant, answers, questions)
-    );
+    const scored = plants.map((plant) => scorePlant(plant, answers, questions));
 
     const filtered = scored.filter(({ plant }) => {
       const a = plant.attributes;
@@ -123,15 +121,16 @@ export default function ResultsPage() {
         </h1>
 
         <p className="text-center text-sm text-slate-600 max-w-xl mx-auto">
-          Plants are ranked by how closely they match your space, care preferences,
-          and lifestyle. Higher-ranked plants are a better fit for you.
+          Plants are ranked by how closely they match your space, care
+          preferences, and lifestyle. Higher-ranked plants are a better fit for
+          you.
         </p>
 
         <div className="flex justify-center">
           <Link
             href="/quiz"
             onClick={handleRetakeQuiz}
-            className="text-sm font-semibold underline hover:opacity-80"
+            className="inline-flex items-center rounded-full border-2 border-emerald-700 bg-emerald-700 px-6 py-2.5 text-sm font-semibold text-white no-underline shadow-sm transition-all duration-200 hover:bg-emerald-800 hover:border-emerald-800 hover:shadow-md"
           >
             Retake the quiz
           </Link>
@@ -193,7 +192,9 @@ export default function ResultsPage() {
           const match = getMatchLabel(score);
 
           const lightCare =
-            CARE_INFO.light[plant.attributes.light as keyof typeof CARE_INFO.light];
+            CARE_INFO.light[
+              plant.attributes.light as keyof typeof CARE_INFO.light
+            ];
           const wateringCare =
             CARE_INFO.watering[
               plant.attributes.watering as keyof typeof CARE_INFO.watering
@@ -203,9 +204,9 @@ export default function ResultsPage() {
               plant.attributes.careTime as keyof typeof CARE_INFO.careTime
             ];
 
-          const whyAttributes = (Object.keys(
-            plant.attributes
-          ) as Attribute[]).filter((attr) => {
+          const whyAttributes = (
+            Object.keys(plant.attributes) as Attribute[]
+          ).filter((attr) => {
             const q = questions.find((qq) => qq.attribute === attr);
             return q && answers[q.id] === plant.attributes[attr];
           });
@@ -221,43 +222,29 @@ export default function ResultsPage() {
                   className="object-cover"
                 />
 
-<div className="flex-1">
-  <h2 className="text-2xl font-bold">{plant.name}</h2>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold">{plant.name}</h2>
 
-  {index === 0 && (
-    <div className="mt-1 text-xs font-semibold text-emerald-700">
-      🌟 Best overall match for you
-    </div>
-  )}
+                  {index === 0 && (
+                    <div className="mt-1 text-xs font-semibold text-emerald-700">
+                      🌟 Best overall match for you
+                    </div>
+                  )}
 
-
-{index !== 0 && (
-  <div className="flex items-center gap-2 mt-1">
-    <span
-      className={`text-xs font-semibold px-2 py-1 rounded-full
-        ${
-          match.color === "emerald" &&
-          "bg-emerald-100 text-emerald-700"
-        }
-        ${
-          match.color === "green" &&
-          "bg-green-100 text-green-700"
-        }
-        ${
-          match.color === "yellow" &&
-          "bg-yellow-100 text-yellow-700"
-        }
-        ${
-          match.color === "gray" &&
-          "bg-gray-100 text-gray-600"
-        }
+                  {index !== 0 && (
+                    <div className="flex items-center gap-2 mt-1">
+                      <span
+                        className={`text-xs font-semibold px-2 py-1 rounded-full
+        ${match.color === "emerald" && "bg-emerald-100 text-emerald-700"}
+        ${match.color === "green" && "bg-green-100 text-green-700"}
+        ${match.color === "yellow" && "bg-yellow-100 text-yellow-700"}
+        ${match.color === "gray" && "bg-gray-100 text-gray-600"}
       `}
-    >
-      {match.label}
-    </span>
-  </div>
-)}
-
+                      >
+                        {match.label}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-3 gap-4 mt-3 text-sm">
                     <div>☀️ {lightCare}</div>
