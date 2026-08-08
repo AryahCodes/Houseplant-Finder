@@ -130,7 +130,7 @@ export default function ResultsPage() {
           <Link
             href="/quiz"
             onClick={handleRetakeQuiz}
-            className="inline-flex items-center rounded-full border-2 border-emerald-700 px-6 py-2.5 text-sm font-semibold text-emerald-800 no-underline transition-colors duration-200 hover:bg-emerald-700 hover:text-white"
+            className="inline-flex items-center rounded-full border-2 border-emerald-700 bg-emerald-700 px-6 py-2.5 text-sm font-semibold text-white no-underline shadow-sm transition-all duration-200 hover:bg-emerald-800 hover:border-emerald-800 hover:shadow-md"
           >
             Retake the quiz
           </Link>
